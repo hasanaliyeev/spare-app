@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}
+UPDATE Product
+{% endblock %}
+
+{% block content %}
+
+<section id="category" class="category">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+            <h2>Product</h2>
+        </div>
+
+        <div class="row content">
+            <div style="margin-left: 10px" class="row">
+                <div class="col-md-4">
+                    <form action="" method="post"> {% csrf_token %}
+                        {{form.as_p}}
+                        <input type="submit" class="btn btn-primary" value="Update Product">
+                    </form>
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                                        <div class="card" style="width: 25rem;">
+
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: darkgreen">Description</h5>
+                            <p class="card-text">{{object.description}}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <span style="padding: 5px; color: darkred">Name:</span>
+                                <span style="padding: 20px">{{object.name}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="padding: 5px; color: darkred">Price:</span>
+                                <span style="padding: 20px">{{object.price}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <span style="padding: 5px; color: darkred">Count:</span>
+                                <span style="padding: 20px">{{object.count}}</span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

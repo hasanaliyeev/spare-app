@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+UPDATE Product
+{% endblock %}
+
+{% block content %}
+
+<section id="category" class="category">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+            <h2>Product List</h2>
+        </div>
+        <div class="row content">
+            <div style="margin-left: 10px" class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Count</th>
+                            <th scope="col">ADD</th>
+                            <th scope="col">SELL</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        {% for obj in page_obj %}
+                        <tr>
+                            <th scope="row">{{obj.id}}</th>
+                            <td>
+                                <a href="{% url 'store:detail' pk=obj.pk %}">{{obj.name}}</a>
+                            </td>
+                            <td>{{obj.category}}</td>
+                            <td>{{obj.price}}</td>
+                            <td>{{obj.count}}</td>
+                            <td>
+                                <a href="{% url 'store:product_add' pk=obj.pk %}">ADD</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'store:product_add' pk=obj.pk %}">SELL</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
